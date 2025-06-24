@@ -51,7 +51,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <input class="form-control" type="password" id="password" name="password"
-                                                placeholder="Password">
+                                                placeholder="Password" required>
                                         </div>
                                     </div>
 
