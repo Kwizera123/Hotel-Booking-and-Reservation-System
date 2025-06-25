@@ -35,7 +35,7 @@
           <a href="#">Booking Details </a>
         </li>
         <li>
-          <a href="#">Logout </a>
+          <a href="{{ route('user.logout') }}">Logout </a>
         </li>
       </ul>
     </div>

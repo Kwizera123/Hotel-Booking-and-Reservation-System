@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     // New Routes down here (NB: I can delete above ones)
     Route::get('/profile', [UserController::class, 'UserProfile'])->name('user.profile');
     Route::post('/profile/store', [UserController::class, 'UserStore'])->name('profile.store');
+    Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
 });
 
 require __DIR__.'/auth.php';
