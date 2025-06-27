@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use App\Enums\UserRole;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -29,6 +30,16 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+
+        $id = Auth::user()->id;
+        $profileData = User::find($id);
+        $username = $profileData->name;
+
+         $notification = array(
+            'message' => 'User '.$username.' Logged in Successfully',
+            'alert-type' => 'info' 
+        );
+
         $url = '';
         if ($request->user()->role === 'admin') {
             $url = route("admin.dashboard");
@@ -36,7 +47,7 @@ class AuthenticatedSessionController extends Controller
             $url = route("dashboard");
         }
 
-        return redirect()->intended($url);
+        return redirect()->intended($url)->with($notification);
         //return redirect()->intended(route('dashboard', absolute: true));
 
     }
