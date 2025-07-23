@@ -1,5 +1,8 @@
 <?php
 
+use Carbon\Laravel\ServiceProvider;
+use Illuminate\Support\Facades\Facade;
+
 return [
 
     /*
@@ -122,5 +125,24 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
+
+        // // config/app.php
+        'providers' => ServiceProvider::defaultProviders()->merge([
+
+            Intervention\Image\ImageServiceProvider::class,
+            //
+        ])->toArray(),
+        //     'providers' => [
+        // //App\Providers\AppServiceProvider::class,
+        //  Intervention\Image\ImageServiceProvider::class,
+        
+        // ],
+
+        'aliases' => Facade::defaultAliases()->merge([
+            //'Example => App\Facades\Example::class,
+            'Image' => Intervention\Image\Facades\Image::class,
+        ])->toArray(),
+
 
 ];
