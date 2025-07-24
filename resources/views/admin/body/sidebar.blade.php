@@ -28,7 +28,7 @@
       <ul>
         <li> <a href="{{ route('all.team') }}"><i class='bx bx-radio-circle'></i>All Team Mambers</a>
         </li>
-        <li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Add Team Mamber</a>
+        <li> <a href="{{ route('add.team') }}"><i class='bx bx-radio-circle'></i>Add Team Mamber</a>
         </li>
 
       </ul>

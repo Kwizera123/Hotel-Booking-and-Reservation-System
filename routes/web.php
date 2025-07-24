@@ -28,28 +28,29 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/change/password', [UserController::class, 'ChangePasswordStore'])->name('password.change.store');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-    //Admin Group Middleware
-    Route::middleware(['auth','roles:admin'])->group(function(){
+//Admin Group Middleware
+Route::middleware(['auth', 'roles:admin'])->group(function () {
 
-          Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');  
-          Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
-          Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
-          Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
-          Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
-          Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
-    });// End Admin Group Middleware 
+    Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+    Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+    Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+    Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
+    Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
+    Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
+});// End Admin Group Middleware 
 
-              Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
 
-                  //Admin Group Middleware
-    Route::middleware(['auth','roles:admin'])->group(function(){
-        // Team All Router
-        Route::controller(TeamController::class)->group(function(){
-            Route::get('/all/team',action: 'AllTeam')->name('all.team');
+//Admin Group Middleware
+Route::middleware(['auth', 'roles:admin'])->group(function () {
+    // Team All Router
+    Route::controller(TeamController::class)->group(function () {
+        Route::get('/all/team', action: 'AllTeam')->name('all.team');
+        Route::get('/add/team', action: 'AddTeam')->name('add.team');
 
-        });
+    });
 
-        });// End Admin Group Middleware 
+});// End Admin Group Middleware 
