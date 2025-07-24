@@ -46,11 +46,11 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
 
 //Admin Group Middleware
 Route::middleware(['auth', 'roles:admin'])->group(function () {
-    // Team All Router
+    // Team All Router team.store
     Route::controller(TeamController::class)->group(function () {
         Route::get('/all/team', action: 'AllTeam')->name('all.team');
         Route::get('/add/team', action: 'AddTeam')->name('add.team');
-
+        Route::post('/team/store', action: 'StoreTeam')->name('team.store');
     });
 
 });// End Admin Group Middleware 

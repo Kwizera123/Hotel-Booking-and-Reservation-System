@@ -40,14 +40,14 @@
       <tr>
         <td>{{ $key + 1}}</td>
         <td>
-        <img src="{{asset($item->image) }}" alt="Image" style="width:70px ; height=:40px;">
+        <img src="{{asset($item->image) }}" alt="Image" style="width:40px ; height=:30px;">
         </td>
         <td>{{ $item->name}}</td>
         <td>{{ $item->position }}</td>
         <td>{{ $item->facebook }}</td>
         <td>{{ $item->tweeter }}</td>
         <td>
-        <a href="" class="btn btn-warning px-3 radius-30">Edit</a>
+        <a href="" class="btn btn-success px-3 radius-30">Edit</a>
         <a href="" class="btn btn-danger px-3 radius-30">Delete</a>
         </td>
       </tr>
