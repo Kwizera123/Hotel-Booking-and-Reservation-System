@@ -40,7 +40,7 @@
       <tr>
         <td>{{ $key + 1}}</td>
         <td>
-        <img src="{{asset($item->image) }}" alt="Image" style="width:40px ; height=:30px;">
+        <img src="{{asset($item->image) }}" alt="Image" style="width:40px ; height=:40px;">
         </td>
         <td>{{ $item->name}}</td>
         <td>{{ $item->position }}</td>
@@ -48,7 +48,8 @@
         <td>{{ $item->tweeter }}</td>
         <td>
         <a href="{{ route('edit.team', $item->id)}}" class="btn btn-success px-3 radius-30">Edit</a>
-        <a href="{{ route('delete.team', $item->id)}}" class="btn btn-danger px-3 radius-30">Delete</a>
+        <a href="{{ route('delete.team', $item->id)}}" class="btn btn-danger px-3 radius-30"
+        id="delete">Delete</a>
         </td>
       </tr>
       @endforeach
