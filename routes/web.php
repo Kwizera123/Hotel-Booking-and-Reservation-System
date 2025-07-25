@@ -63,6 +63,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     // Team All Router team.store
      Route::controller(Book::class)->group(function () {
          Route::get('/update/bookarea', action: 'UpdateBookarea')->name('update.book.area');
+         Route::post('/book/area/update', action: 'BookAreaUpdate')->name('booarea.update'); 
           });
     });
 
