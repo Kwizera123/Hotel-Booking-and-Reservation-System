@@ -48,7 +48,7 @@
         <td>{{ $item->tweeter }}</td>
         <td>
         <a href="{{ route('edit.team', $item->id)}}" class="btn btn-success px-3 radius-30">Edit</a>
-        <a href="" class="btn btn-danger px-3 radius-30">Delete</a>
+        <a href="{{ route('delete.team', $item->id)}}" class="btn btn-danger px-3 radius-30">Delete</a>
         </td>
       </tr>
       @endforeach

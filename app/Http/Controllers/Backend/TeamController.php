@@ -85,9 +85,23 @@ class TeamController extends Controller
 
             $notification = array(
             'message' => 'Team Mamber Updated without Image Successfully',
-            'alert-type' => 'info' 
+            'alert-type' => 'success' 
         );
         return redirect()->route('all.team')->with($notification);
         }// end else condition
     }// End of Method
+
+    public function DeleteTeam($id){
+        $item = Team::findOrFail($id);
+        $img = $item->image;
+        unlink($img);
+
+        Team::findOrFail($id)->delete();
+
+            $notification = array(
+            'message' => 'Team Mamber Deleted with Image Successfully',
+            'alert-type' => 'error' 
+        );
+        return redirect()->back()->with($notification);
+    }// End Method
 }
