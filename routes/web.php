@@ -51,6 +51,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/all/team', action: 'AllTeam')->name('all.team');
         Route::get('/add/team', action: 'AddTeam')->name('add.team');
         Route::post('/team/store', action: 'StoreTeam')->name('team.store');
+        Route::get('/edit/team/{id}', action: 'EditTeam')->name('edit.team');
+        Route::post('/team/update', action: 'UpdateTeam')->name('team.update');    
     });
 
 });// End Admin Group Middleware 
