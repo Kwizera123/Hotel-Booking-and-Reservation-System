@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\TeamController;
+use App\Http\Controllers\Backend\Book;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -56,4 +57,13 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/team/delete/{id}', action: 'DeleteTeam')->name('delete.team');  
     });
 
-});// End Admin Group Middleware 
+
+    //Admin Group Middleware
+    Route::middleware(['auth', 'roles:admin'])->group(function () {
+    // Team All Router team.store
+     Route::controller(Book::class)->group(function () {
+         Route::get('/update/bookarea', action: 'UpdateBookarea')->name('update.book.area');
+          });
+    });
+
+});// End Admin Group Middleware   
