@@ -34,16 +34,22 @@
         </thead>
         <tbody>
         @foreach ($allData as $key => $item)
-      <tr>
-        <td>{{ $key + 1}}</td>
-        <td></td>
-        <td>{{ $item->name}}</td>
-        <td>
-        <a href="{{ route('edit.team', $item->id)}}" class="btn btn-success px-3 radius-30">Edit</a>
-        <a href="{{ route('delete.team', $item->id)}}" class="btn btn-danger px-3 radius-30"
-        id="delete">Delete</a>
-        </td>
-      </tr>
+        @php
+        $rooms = App\Models\Room::where('roomtype_id', $item->id)->get();
+        @endphp
+        <tr>
+          <td>{{ $key + 1}}</td>
+          <td><img
+          src="{{ (!empty($item->room->image)) ? url('upload/roomimg/' . $item->room->image) : url('upload/no_image.jpg') }}"
+          alt="" style="width: 50px; height: 40px;">
+          </td>
+          <td>{{ $item->name}}</td>
+          <td>
+          <a href="{{ route('edit.team', $item->id)}}" class="btn btn-success px-3 radius-30">Edit</a>
+          <a href="{{ route('delete.team', $item->id)}}" class="btn btn-danger px-3 radius-30"
+          id="delete">Delete</a>
+          </td>
+        </tr>
       @endforeach
         </tbody>
 
