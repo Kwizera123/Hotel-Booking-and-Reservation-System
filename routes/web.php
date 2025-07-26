@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\Book;
+use App\Http\Controllers\Backend\RoomTypeController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -58,11 +59,20 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     });
 
 
-    //Admin Group Middleware
+    //Book Area Group Middleware
     Route::middleware(['auth', 'roles:admin'])->group(function () {
-    // Team All Router team.store
+    // Book Area All Router team.store
      Route::controller(Book::class)->group(function () {
          Route::get('/update/bookarea', action: 'UpdateBookarea')->name('update.book.area');
+         Route::post('/book/area/update', action: 'BookAreaUpdate')->name('booarea.update'); 
+          });
+    });
+
+        //Room Type Group Middleware
+    Route::middleware(['auth', 'roles:admin'])->group(function () {
+    // Book Area All Router team.store
+     Route::controller( RoomTypeController::class)->group(function () {
+         Route::get('/room/type/list', action: 'RoomTypeList')->name('room.type.list');
          Route::post('/book/area/update', action: 'BookAreaUpdate')->name('booarea.update'); 
           });
     });
