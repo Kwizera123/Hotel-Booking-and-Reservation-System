@@ -17,4 +17,21 @@ class RoomTypeController extends Controller
         return view('backend.allroom.roomtype.view_roomtype',compact('allData'));
     }
     //End of method
+
+    public function AddRoomType(){
+        return view('backend.allroom.roomtype.add_roomtype');
+    }// End Method
+
+    public function RoomTypeStore(Request $request){
+        RoomType::insert([
+            'name' => $request->name,
+            'created_at' => Carbon::now(),
+        ]);
+
+         $notification = array(
+            'message' => 'Room Type Created Successfully',
+            'alert-type' => 'success' 
+        );
+        return redirect()->route('room.type.list')->with($notification);
+    }// End of Method
 }

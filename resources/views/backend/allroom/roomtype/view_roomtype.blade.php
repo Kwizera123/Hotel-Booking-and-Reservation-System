@@ -11,7 +11,7 @@
     <div class="ps-3">
       <nav aria-label="breadcrumb">
       <ol class="breadcrumb mb-0 p-0">
-        <a href="{{ route('add.team') }}" class="btn btn-outline-primary px-5 radius-30">Add Room Type</a>
+        <a href="{{ route('add.room.type') }}" class="btn btn-outline-primary px-5 radius-30">Add Room Type</a>
       </ol>
       </nav>
     </div>
@@ -36,9 +36,7 @@
         @foreach ($allData as $key => $item)
       <tr>
         <td>{{ $key + 1}}</td>
-        <td>
-        <img src="{{asset($item->image) }}" alt="Image" style="width:40px ; height=:40px;">
-        </td>
+        <td></td>
         <td>{{ $item->name}}</td>
         <td>
         <a href="{{ route('edit.team', $item->id)}}" class="btn btn-success px-3 radius-30">Edit</a>
