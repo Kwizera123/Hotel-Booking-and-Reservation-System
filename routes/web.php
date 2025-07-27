@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\Book;
 use App\Http\Controllers\Backend\RoomTypeController;
+use App\Http\Controllers\Backend\RoomController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -78,5 +79,13 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::post('/room/type/store', action: 'RoomTypeStore')->name('room.type.store'); 
           });
     });
+    // End Admin Group Middleware 
 
-});// End Admin Group Middleware   
+         //Room all Group 
+        Route::controller( RoomController::class)->group(function () {
+        
+            Route::get('/edit/room/{id}', action: 'EditRoom')->name('edit.room');
+
+          });
+
+}); 
