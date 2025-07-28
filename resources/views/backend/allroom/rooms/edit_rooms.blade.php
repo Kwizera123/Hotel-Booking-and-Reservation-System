@@ -42,7 +42,10 @@
             <div class="card">
             <div class="card-body p-4">
               <h5 class="mb-4">Edit Room</h5>
-              <form class="row g-3">
+              <form class="row g-3" action="{{ route('update.room', $editData->id) }}" method="POST"
+              enctype="multipart/form-data">
+              @csrf
+
               <div class="col-md-4">
                 <label for="input1" class="form-label">Room Type Name</label>
                 <input type="text" name="roomtype_id" class="form-control" id="input1"
@@ -75,23 +78,28 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <label for="input1" class="form-label">Room price</label>
                 <input type="text" name="price" class="form-control" id="input1" placeholder="Room price"
                 value="{{ $editData->price }}">
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
+                <label for="input1" class="form-label">Room size</label>
+                <input type="text" name="size" class="form-control" id="input1" placeholder="Room size"
+                value="{{ $editData->size }}">
+              </div>
+              <div class="col-md-3">
                 <label for="input2" class="form-label">Discount ( % )</label>
                 <input type="text" name="discount" class="form-control" id="input2"
                 placeholder="Discount ( % )" value="{{ $editData->discount }}">
               </div>
-              <div class=" col-md-4">
+              <div class=" col-md-3">
                 <label for="input2" class="form-label">Room Capacity</label>
                 <input type="text" name="room_capacity" class="form-control" id="input2"
                 placeholder="Room Capacity" value="{{ $editData->room_capacity }}">
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-3">
                 <label for="input7" class="form-label">Room View</label>
                 <select name="view" id="input7" class="form-select">
                 <option selected="">Choose...</option>
