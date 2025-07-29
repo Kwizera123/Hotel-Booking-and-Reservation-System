@@ -23,24 +23,26 @@ class RoomController extends Controller
 
     public function UpdateRoom(Request $request, $id){
 
-        $room = Room::find($id);
+        $room  = Room::find($id);
         $room->roomtype_id = $room->roomtype_id;
         $room->total_adult = $request->total_adult;
         $room->total_child = $request->total_child;
         $room->room_capacity = $request->room_capacity;
         $room->price = $request->price;
+
         $room->size = $request->size;
         $room->view = $request->view;
         $room->bed_style = $request->bed_style;
         $room->discount = $request->discount;
         $room->short_desc = $request->short_desc;
-        $room->description = $request->description;
+        $room->description = $request->description; 
+
         //update single image
 
         if($request->file('image')){
             //
         $image = $request->file('image');
-        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalName();
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         Image::make($image)->resize(550,580)->save('upload/roomimg/'.$name_gen);
         $room['image'] = $name_gen;
         }
@@ -77,7 +79,7 @@ class RoomController extends Controller
             if(!empty($files)){
                 foreach($files as $file){
                     $imgName = date('YmdHi').$file->getClientOriginalName();
-                    $file->move('upload/roomimg/multi_img/'.$imgName);
+                    $file->move('upload/roomimg/multi_img/',$imgName);
                     $subimage['multi_img'] = $imgName;
 
                     $subimage = new MultiImage();
