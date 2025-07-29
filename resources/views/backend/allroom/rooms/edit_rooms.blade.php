@@ -73,6 +73,12 @@
                 <input type="file" name="multi_img[]" class="form-control" multiple id="multiImg"
                 placeholder="Gallery Image" accept="image/jpeg, image/jpg, image/gif, image/png">
 
+                @foreach ($multiimgs as $item)
+                <img src="{{ (!empty($item->multi_img)) ? url('upload/roomimg/multi_img/' . $item->multi_img) :
+          url('upload/no_image.jpg') }}" alt="Image" class="p-1 bg-primary" width="80" height="80">
+                <a href="{{ route('multi-image.delete', $item->id)}}"><i class="lni lni-close"></i></a>
+          @endforeach
+
                 <div class="row" id="preview_img">
 
                 </div>
@@ -103,8 +109,10 @@
                 <label for="input7" class="form-label">Room View</label>
                 <select name="view" id="input7" class="form-select">
                 <option selected="">Choose...</option>
-                <option value="See View">See View</option>
-                <option value="Hill View">Hill view</option>
+                <option value="See View" {{$editData->view == 'See View' ? 'selected' : ''}}>
+                  See View</option>
+                <option value="Hill View" {{$editData->view == 'Hill View' ? 'selected' : ''}}>Hill view
+                </option>
                 </select>
               </div>
 
@@ -112,9 +120,12 @@
                 <label for="input7" class="form-label">Bed Style</label>
                 <select name="bed_style" id="input7" class="form-select">
                 <option selected="">Choose...</option>
-                <option value="Queen Bed">Queen Bed</option>
-                <option value="Twin Bed">Twin Bed</option>
-                <option value="King Bed">King Bed</option>
+                <option value="Queen Bed" {{$editData->bed_style == 'Queen Bed' ? 'selected' : ''}}>Queen Bed
+                </option>
+                <option value="Twin Bed" {{$editData->bed_style == 'Twin Bed' ? 'selected' : ''}}>Twin Bed
+                </option>
+                <option value="King Bed" {{$editData->bed_style == 'King Bed' ? 'selected' : ''}}>King Bed
+                </option>
                 </select>
               </div>
 
@@ -181,9 +192,9 @@
             </div>
             <div class="col-md-4">
             <div class="form-group" style="padding-top: 30px;">
-            <a class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></a>
+            <a class="btn btn-success addeventmore"><i class="lni lni-circle-plus"></i></a>
             <span class="btn btn-danger btn-sm removeeventmore"><i
-              class="fa fa-minus-circle"></i></span>
+              class="lni lni-circle-plus"></i></span>
             </div>
             </div>
             </div>
