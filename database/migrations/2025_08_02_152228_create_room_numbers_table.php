@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('multi_images', function (Blueprint $table) {
+        Schema::create('room_numbers', function (Blueprint $table) {
             $table->id();
             $table->integer('rooms_id');
-            $table->string('multi_img')->nullable();
+            $table->integer('room_type_id');
+            $table->string('room_no')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('multi_images');
+        Schema::dropIfExists('room_numbers');
     }
 };
