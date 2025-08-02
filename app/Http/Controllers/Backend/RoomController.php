@@ -12,6 +12,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Room;
 use App\Models\Facility;
 use App\Models\MultiImage;
+use App\Models\RoomNumber;
 
 class RoomController extends Controller
 {
