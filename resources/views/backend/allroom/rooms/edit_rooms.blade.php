@@ -258,7 +258,8 @@
           <div class="tab-pane fade" id="primaryprofile" role="tabpanel">
           <div class="card">
             <div class="card-body">
-            <a class="card-title btn btn-outline-primary px-5 radius-30 float-right">
+            <a class="card-title btn btn-outline-primary px-5 radius-30 float-right" onclick="addRoomNo()"
+              id="addRoomNo">
               <i class="lni lni-plus">Add New</i>
             </a>
             <div class="roomnoHide" id="roomnoHide">
@@ -284,6 +285,34 @@
               </div>
               </form>
             </div>
+
+            <table class="table mb-0 table-striped" id="roomview">
+              <thead>
+              <tr>
+                <th scope="col">Room Number</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>
+
+                <a href="" class="btn btn-success px-3 radius-30">Edit</a>
+                <a href="" class="btn btn-danger px-3 radius-30" id="delete">Delete</a>
+
+                </td>
+              </tr>
+
+
+              </tbody>
+            </table>
+
+
             </div>
           </div>
           </div>
@@ -391,6 +420,20 @@
     });
   </script>
   <!--========== End of Basic Plan Facilities ==============-->
+
+  <!--========== Start room number add ==============-->
+  <script>
+    $('#roomnoHide').hide();
+    $('#roomview').show();
+
+    function addRoomNo() {
+    $('#roomnoHide').show();
+    $('#roomview').hide();
+    $('#addRoomNo').hide();
+    }
+  </script>
+
+  <!--========== End room number hide ==============-->
 
 
 
