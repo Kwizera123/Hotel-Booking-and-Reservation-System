@@ -89,6 +89,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
             Route::get('/multi/image/delete/{id}', action: 'MultiImageDelete')->name('multi-image.delete');
 
             Route::post('/store/room/no/{id}', action: 'StoreRoomNumber')->name('store.room.no');
+            Route::get('/edit/roomno/{id}', action: 'EditRoomNumber')->name('edit.roomno');
+            Route::get('/delete/roomno/{id}', action: 'DeleteRoomNumber')->name('delete.roomno');
           });
 
 }); 
