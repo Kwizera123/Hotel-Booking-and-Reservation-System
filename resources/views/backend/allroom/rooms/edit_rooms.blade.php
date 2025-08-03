@@ -265,7 +265,7 @@
             <div class="roomnoHide" id="roomnoHide">
               <form action="{{ route('store.room.no', $editData->id)}}" method="post">
               @csrf
-              <input type="hiden" name="room_type_id" value="{{ $editData->roomtype_id }}">
+              <input type="hidden" name="room_type_id" value="{{ $editData->roomtype_id }}">
 
               <div class="row">
                 <div class=" col-md-4">
@@ -299,18 +299,21 @@
               </tr>
               </thead>
               <tbody>
-              <tr>
+              @foreach ($allroomNo as $item)
 
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>
 
-                <a href="" class="btn btn-success px-3 radius-30">Edit</a>
-                <a href="" class="btn btn-danger px-3 radius-30" id="delete">Delete</a>
+          <tr>
 
-                </td>
-              </tr>
+          <td>{{ $item->room_no}}</td>
+          <td>{{ $item->status}}</td>
+          <td>
 
+          <a href="" class="btn btn-success px-3 radius-30">Edit</a>
+          <a href="" class="btn btn-danger px-3 radius-30" id="delete">Delete</a>
+
+          </td>
+          </tr>
+        @endforeach
 
               </tbody>
             </table>
