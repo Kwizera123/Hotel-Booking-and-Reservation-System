@@ -118,4 +118,19 @@ class RoomController extends Controller
         );
         return redirect()->back()->with($notification);
     }// End of Method
+
+    public function StoreRoomNumber(Request $request, $id){
+        $data = new RoomNumber();
+        $data->rooms_id = $id;
+        $data->room_type_id = $request->room_type_id;
+        $data->room_no = $request->room_no;
+        $data->status = $request->status;
+        $data->save();
+
+         $notification = array(
+            'message' => 'Room Number Added Successfully',
+            'alert-type' => 'success' 
+        );
+        return redirect()->back()->with($notification);
+    }// End metho
 }

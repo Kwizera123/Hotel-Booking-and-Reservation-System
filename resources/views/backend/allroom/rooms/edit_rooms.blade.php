@@ -263,7 +263,10 @@
               <i class="lni lni-plus">Add New</i>
             </a>
             <div class="roomnoHide" id="roomnoHide">
-              <form action="">
+              <form action="{{ route('store.room.no', $editData->id)}}" method="post">
+              @csrf
+              <input type="hiden" name="room_type_id" value="{{ $editData->roomtype_id }}">
+
               <div class="row">
                 <div class=" col-md-4">
                 <label for="input2" class="form-label">Room No</label>
