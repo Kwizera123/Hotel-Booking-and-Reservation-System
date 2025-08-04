@@ -92,6 +92,10 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
             Route::get('/edit/roomno/{id}', action: 'EditRoomNumber')->name('edit.roomno');
             Route::post('/update/room/no/{id}', action: 'updateRoomNumber')->name('update.roomno');
             Route::get('/delete/roomno/{id}', action: 'DeleteRoomNumber')->name('delete.roomno');
+
+            Route::get('/delete/room/{id}', action: 'DeleteRoomType')->name('delete.room');
+
+            
           });
 
 }); 
