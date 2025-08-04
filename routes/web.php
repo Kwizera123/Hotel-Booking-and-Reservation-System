@@ -90,6 +90,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
             Route::post('/store/room/no/{id}', action: 'StoreRoomNumber')->name('store.room.no');
             Route::get('/edit/roomno/{id}', action: 'EditRoomNumber')->name('edit.roomno');
+            Route::post('/update/room/no/{id}', action: 'updateRoomNumber')->name('update.roomno');
             Route::get('/delete/roomno/{id}', action: 'DeleteRoomNumber')->name('delete.roomno');
           });
 

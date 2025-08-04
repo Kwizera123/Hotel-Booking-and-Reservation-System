@@ -27,7 +27,7 @@
         <form action="{{ route('update.roomno', $editroomno->id) }}" method="post" enctype="multipart/form-data">
           @csrf
 
-          <input type="hidden" name="id" value="{{$editroomno->id}}">
+          {{-- <input type="hidden" name="id" value="{{$editroomno->id}}"> --}}
 
           <div class=" card-body">
           <div class="row mb-3">
