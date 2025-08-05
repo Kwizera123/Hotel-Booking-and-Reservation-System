@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Team;
 use App\Models\BookArea;
+use App\Models\Book;
 use App\Models\RoomType;
 use Carbon\Carbon;
 use Intervention\Image\ImageManagerStatic as Image;

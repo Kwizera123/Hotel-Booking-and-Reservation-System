@@ -66,6 +66,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
      Route::controller(Book::class)->group(function () {
          Route::get('/update/bookarea', action: 'UpdateBookarea')->name('update.book.area');
          Route::post('/book/area/update', action: 'BookAreaUpdate')->name('booarea.update'); 
+        //Route::post('/book/area/update', action: 'BookAreaUpdate')->name('booarea.update'); 
           });
     });
 
@@ -74,7 +75,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     // Book Area All Router team.store
      Route::controller( RoomTypeController::class)->group(function () {
         Route::get('/room/type/list', action: 'RoomTypeList')->name('room.type.list');
-        Route::post('/book/area/update', action: 'BookAreaUpdate')->name('booarea.update'); 
+       // Route::post('/book/area/update', action: 'BookAreaUpdate')->name('booarea.update'); 
         Route::get('/add/room/type', action: 'AddRoomType')->name('add.room.type'); 
         Route::post('/room/type/store', action: 'RoomTypeStore')->name('room.type.store'); 
           });
