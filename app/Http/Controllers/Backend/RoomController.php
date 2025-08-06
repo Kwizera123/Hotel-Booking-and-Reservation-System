@@ -46,7 +46,7 @@ class RoomController extends Controller
             //
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(550,580)->save('upload/roomimg/'.$name_gen);
+        Image::make($image)->resize(550,850)->save('upload/roomimg/'.$name_gen);
         $room['image'] = $name_gen;
         }
         $room->save();
