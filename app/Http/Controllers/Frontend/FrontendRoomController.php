@@ -9,12 +9,21 @@ use App\Models\Book;
 use App\Models\RoomType;
 use Carbon\Carbon;
 use Intervention\Image\ImageManagerStatic as Image;
+use App\Models\MultiImage;
 use App\Models\Room;
+use App\Models\Facility;
 
 class FrontendRoomController extends Controller
 {
     public function AllFrontendRoomList(){
         $rooms = Room::latest()->get();
         return view('frontend.room.all_rooms',compact('rooms'));
+    }// End Method
+
+    public function RoomDetailsPage($id){
+        $roomdetails = Room::find($id);
+        $multiImage = MultiImage::where('rooms_id',$id)->get();
+        $facility = Facility::where('rooms_id',$id)->get();
+        return view('frontend.room.room_details',compact('roomdetails','multiImage','facility'));
     }// End Method
 }

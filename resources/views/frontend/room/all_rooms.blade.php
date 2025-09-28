@@ -26,27 +26,27 @@
         <h2>Our Rooms & Rates</h2>
       </div>
       <div class="row pt-45">
-        @foreach ($rooms as $room)
+        @foreach ($rooms as $item)
 
 
           <div class="col-lg-4 col-md-6">
             <div class="room-card">
               <a href="room-details.html">
-                <img src="{{ asset('upload/roomimg/' . $room->image) }}" alt="Images" style="width: 550px; height:320px;">
+                <img src="{{ asset('upload/roomimg/' . $item->image) }}" alt="Images" style="width: 550px; height:320px;">
               </a>
               <div class="content">
-                <h3><a href="room-details.html">{{ $room['type']['name'] }}</a></h3>
-                  <ul>
-                    <li class="text-color">${{ $room->price }}</li>
-                    <li class="text-color">Per Night</li>
-                  </ul>
-                  <div class="rating text-color">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                  </div>
+                <h3><a href="{{ url('room/details/' . $item->id) }}">{{ $item['type']['name'] }}</a></h3>
+                <ul>
+                  <li class="text-color">${{ $item->price }}</li>
+                  <li class="text-color">Per Night</li>
+                </ul>
+                <div class="rating text-color">
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star-half'></i>
+                </div>
               </div>
             </div>
           </div>
